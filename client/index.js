@@ -1,8 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import ApolloClient from 'apollo-client';
+import { ApolloProvider }  from 'react-apollo';
+
+import App from './components/App';
+import SongList from './components/SongList';
+import SongCreate from './components/SongCreate';
+
+//////////////////////////////////////////////////////////////////
+//ApolloClient render data from server and display
+//----------------------------------------------------------------
+//ApolloProvider react component "glue" integration between
+//react & apollo data source passing a reference to the apollo store
+
+const client = new ApolloClient({});
 
 const Root = () => {
-  return <div>Lyrical</div>
+
+  return (
+    <ApolloProvider client={ client }>
+      <Router history={ hashHistory }>
+        <Route path="/" component={ App }>
+          <IndexRoute component={ SongList }/>
+          <Route path="/songs/new" component={ SongCreate }/>
+
+        </Route>
+      </Router>
+    </ApolloProvider>
+  )
+
 };
 
 ReactDOM.render(

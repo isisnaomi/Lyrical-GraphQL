@@ -1,0 +1,21 @@
+{
+  songs{
+    id
+    title
+    lyrics{
+      content
+    }
+  }
+}
+
+mutation{
+  addSong(title:"Cold hands"){
+    id
+    title
+  }
+}
+mutation{
+  addLyricToSong(content:"Here you are", songId:"5a4286d43af6b279b80344bd"){
+		id
+  }
+}
