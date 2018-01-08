@@ -6,12 +6,9 @@ import query from '../queries/fetchSongs';
 
 class SongList extends Component {
   onSongDelete(id){
-
+    //Related query to component
     this.props.mutate({
-      variables:{id},
-      refetchQueries:[{ query }]
-    }).then(()=> hashHistory.push('/'));
-
+      variables:{id}}).then(()=> this.props.data.refetch());
   }
   renderSongs(){
     return this.props.data.songs.map(({id, title}) => {
@@ -39,7 +36,7 @@ class SongList extends Component {
           </ul>
           <Link
              to="/songs/new"
-             className="btn-floating btn-large red right">
+             className="btn-floating btn-large right btn-pink">
             <i className="material-icons">add</i>
 
           </Link>
