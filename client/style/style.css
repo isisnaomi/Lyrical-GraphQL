@@ -6,6 +6,8 @@
 }
 .material-icons
 {
+    margin-right: 5px;
+
     cursor: pointer;
 }
 body
@@ -31,4 +33,10 @@ body
     text-align: center;
 
     color: white;
+}
+.vote-box
+{
+    display: flex;
+
+    align-items: center;
 }
