@@ -16,7 +16,9 @@ import SongDetail from './components/SongDetail';
 //ApolloProvider react component "glue" integration between
 //react & apollo data source passing a reference to the apollo store
 
-const client = new ApolloClient({});
+const client = new ApolloClient({
+  dataIdFromObject: o => o.id
+});
 
 const Root = () => {
 
